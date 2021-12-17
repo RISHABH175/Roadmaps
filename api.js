@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.post('/signup', (req, res) => {
-    console.log(req.body);
+    //console.log(req.body);
     payload = req.body;
     mongo.connect(url, (err, db) => {
         if (err) throw err;
@@ -30,6 +30,25 @@ app.post('/signup', (req, res) => {
 
     })
     //console.log(payload.name)
+})
+
+app.post('/login', (req, res) => {
+    console.log(req.body);
+    payload = req.body;
+    mongo.connect(url, (err, db) => {
+        if (err) throw err;
+        //console.log("Connected...");
+        const dbo = db.db("userDetails");
+        dbo.collection("signup").findOne({ email: payload.email,password:payload.password }, (err, data) => {
+            if (data == null) {                    
+                res.status(200).send({c:0});
+            } else {
+                res.status(200).send({c:1});
+            }
+            db.close();
+        });
+
+    })
 })
 
 
