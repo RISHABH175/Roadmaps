@@ -4,40 +4,35 @@ const mongo = require('mongodb').MongoClient;
 const url = "mongodb://localhost:27017";
 const cors = require('cors')
 const bodyParser = require("body-parser");
-//let payload;
-
+let payload;
+let details;
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
-app.post('/signup',(req,res)=>{
+app.post('/signup', (req, res) => {
     console.log(req.body);
+    payload = req.body;
+    mongo.connect(url, (err, db) => {
+        if (err) throw err;
+        console.log("Connected...");
+        const dbo = db.db("userDetails");
+        dbo.collection("signup").findOne({ email: payload.email }, (err, data) => {
+            if (data == null) {
+                dbo.collection("signup").insertOne({ name: payload.name, email: payload.email, password: payload.password }, (err, res) => {
+                    if (err) throw err;
+                    db.close();
+                })
+                res.status(200).send({res1:"Done"});
+            } else {
+                res.status(422).send({ res1: "User already exists" });
+            }
+        });
+
+    })
+    //console.log(payload.name)
 })
 
 
-mongo.connect(url,(err,db)=>{
-    if(err) throw err;
-    console.log("Connected...");
-     const dbo = db.db("userDetails");
-    // dbo.collection("nodeCollection",(err,res)=>{
-    //     if(err) throw err;
-    //     console.log('collection created');
-    //     db.close();
-    // });
-    // dbo.collection("signup").insertOne(details,(err,res)=>{
-    //     if(err) throw err;
-    //     //console.log(res.insertedCount);
-    //     db.close();
-    // });
-    // dbo.collection("nodeCollection").find({}).toArray((err,data)=>{
-    //     if(err) throw err;
-    //     console.log(data);
-    //     db.close();
-    // });
-    // dbo.collection("nodeCollection").findOne({"name":"Hey"},(err,data)=>{
-    //     if(err) throw err;
-    //     console.log(data);
-    //     db.close();
-    // });
-})
+
 
 app.listen(3001);

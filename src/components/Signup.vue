@@ -37,6 +37,7 @@
 
 <script>
 import axios from "axios";
+import router from "../router/index";
 export default {
   name: "CreateUser",
   data() {
@@ -50,17 +51,27 @@ export default {
   },
   methods: {
     createUser() {
-     
       this.clearForm();
-      axios.post("http://localhost:3001/signup", this.form)
-      .then(() => {
-                     //Perform Success Action
-                 })
-                 .catch(() => {
-                     // error.response.status Check status code
-                 }).finally(() => {
-                     //Perform action in always
-                 });
+      axios.post("http://localhost:3001/signup", this.form,)
+      .then((response)=>{
+        console.log(response);
+        if(response.status==200){
+          router.push({path:'/login'});
+        }
+      })
+
+      // .then(() => {
+                     
+      //            })
+      //            .catch(() => {
+                  
+      //                // error.response.status Check status code
+      //            }).finally((req,res) => {
+      //                //Perform action in always
+      //                if(res.status()==200){
+      //                 this.$router.push({path:'/login'});
+      //                }
+      //            });
     },
     clearForm() {
       this.firstName = "";
