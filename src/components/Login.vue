@@ -1,5 +1,9 @@
 <template>
   <div class="vue-tempalte">
+     <div class="vertical-center" >
+     <div class="inner-block1" >
+     </div>
+    <div class="inner-block" >
     <form v-on:submit.prevent="checkCred">
       <h3>Login</h3>
 
@@ -34,6 +38,8 @@
       </p>
     </form>
   </div>
+  </div>
+  </div>
 </template>
 <script>
 import axios from "axios";
@@ -66,4 +72,3 @@ export default {
   },
 };
 </script>
-
