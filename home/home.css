@@ -1,0 +1,25 @@
+.main
+{
+background-color: black;
+width: 100%;
+}
+.hero
+{
+    background-color: black;
+
+    text-align: center;
+}
+
+li:hover
+{
+    font-size:20px;
+    border: 5px solid lightblue;
+
+}
+
+@media screen and (min-width: 780px) {
+    #a
+    {
+        margin-left:800px;
+    }
+  }
