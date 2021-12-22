@@ -28,13 +28,17 @@
       >
         Login
       </button>
+      <p class="forgot-password text-right">
+        New User 
+        <router-link :to="{ name: 'signup' }">sign up?</router-link>
+      </p>
     </form>
   </div>
 </template>
-
 <script>
 import axios from "axios";
-//import router from "../router/index";
+import router from "../router/index";
+//import 'bootstrap/dist/css/bootstrap.min.css';
 export default {
   name: "loginInfo",
   data() {
@@ -51,8 +55,8 @@ export default {
       axios.post("http://localhost:3001/login", this.form).then((response) => {
         console.log(response);
         if (response.data.c == 1) {
-          //router.push({ path: "/home" });
-          alert("Login done!!")
+          router.push({ path: "/home" });
+          //alert("Login done!!")
         }
         else{
             alert("Invalid credentials!");
@@ -62,3 +66,4 @@ export default {
   },
 };
 </script>
+

@@ -5,7 +5,7 @@ const url = "mongodb://localhost:27017";
 const cors = require('cors')
 const bodyParser = require("body-parser");
 let payload;
-let details;
+//let details;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
