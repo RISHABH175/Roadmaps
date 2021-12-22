@@ -4,7 +4,7 @@
 }
 
 body {
-  
+  background-color: black;
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
@@ -36,8 +36,9 @@ html,
 }
 
 .inner-block {
+  height:500px;
   width: 450px;
-  margin: auto;
+  margin-top:100px;
   background: #ffffff;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
   padding: 40px 55px 45px 55px;
@@ -45,8 +46,8 @@ html,
   transition: all .3s;
 }
 .inner-block1 {
-  margin-top: 200px;
-  
+  margin-top: 100px;
+  margin-right: 200px;
   width: 890px;
   height: 500px;
   background-repeat: no-repeat;
@@ -75,57 +76,34 @@ label {
   font-weight: 500;
 }
 
-.forgot-password,
-.forgot-password a {
-  text-align: right;
-  font-size: 13px;
-  padding-top: 10px;
-  color: #7a7a7a;
-  margin: 0;
-}
 
-.forgot-password a {
-  color: #2554FF;
-}
+
 
 
 @media (max-width:550px) {
   .vertical-center {
     display: flex;
     text-align: left;
-    justify-content: center;
+    justify-content:left;
     flex-direction: column;    
   }
-
-  .inner-block1 {
-    margin-top: 150px;
-    /* margin-bottom: 150px; */
-    width: 700px;
-    height: 500px;
-    background-repeat: no-repeat;
-    margin-left: 0px;
+  .inner-block {
+    height:500px;
+    width: 350px;
+    margin-left: 70px;
+    background: #ffffff;
     box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
     padding: 40px 55px 45px 55px;
     border-radius: 15px;
-    background-image: url("../../../roadmap.png");
-    background-size: contain;
+    transition: all .3s;
   }
-  } 
-@media (max-width:750px) {
-  .vertical-center {
-    display: flex;
-    text-align: left;
-    justify-content: center;
-    flex-direction: column;    
-  }
-
   .inner-block1 {
-    margin-top: 150px;
-    /* margin-bottom: 150px; */
-    width: 900px;
-    height: 500px;
+    margin-top: 100px;
+    margin-right: 200px;
+    width: 290px;
+    height: 180px;
     background-repeat: no-repeat;
-    margin-left: 0px;
+    margin-left: 100px;
     box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
     padding: 40px 55px 45px 55px;
     border-radius: 15px;
