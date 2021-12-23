@@ -35,7 +35,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="About_Us.html">About Us</a>
+              <a class="nav-link" href="#">About Us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="Privacy_Policy.html">Privacy Policy</a>
@@ -49,7 +49,7 @@
               <a class="nav-link" href="Disclaimer.html">Disclaimer</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="a"
+              <a class="nav-link" id="a" v-on:click="$router.push({path:'/View'})"
                 ><i class="fas fa-search"></i> Search</a
               >
             </li>
@@ -175,11 +175,14 @@
 </template>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script>
-import logo from "../components/logo.png"
+import router from "../router/index";
 export default {
   name: "HomePage",
   data : {
     logo: 'logo.png'
+  },
+  components:{
+    router
   }
 };
 </script>

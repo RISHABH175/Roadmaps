@@ -28,6 +28,11 @@ Vue.use(VueRouter)
     path:'/createNew',
     name:'createNew',
     component: ()=>import('../components/CreateNew.vue')
+  },
+  {
+    path:'/View',
+    name:'View',
+    component: ()=>import('../components/ViewChart.vue')
   }
  
 ]

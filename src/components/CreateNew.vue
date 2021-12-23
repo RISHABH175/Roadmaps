@@ -57,7 +57,7 @@ import Vue from "vue";
 // import FlowChart from "flowchart-vue";
 import cors from "cors";
 // Vue.use(FlowChart);
-// Vue.use(cors);
+Vue.use(cors);
 import SimpleFlowchart from "vue-simple-flowchart";
 import "vue-simple-flowchart/dist/vue-flowchart.css";
 Vue.use(SimpleFlowchart);
@@ -185,6 +185,9 @@ export default {
         console.log(this.data12.links);
          axios.post("http://localhost:3001/createNew", this.data12)
         .then((resp) => {
+          if(resp.data.c == 1){
+            alert('Roadmap Saved');
+          }
         });
     }
   },
@@ -203,7 +206,7 @@ export default {
   color: #2c3e50;
   margin: 0;
   overflow: hidden;
-  height: 800px;
+  height: 1000px;
 }
 .tool-wrapper {
   position: relative;

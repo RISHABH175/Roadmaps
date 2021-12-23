@@ -54,8 +54,37 @@ app.post('/login', (req, res) => {
 app.post('/createNew',(req,res)=>{
     console.log(req.body.nodes);
     //res.send(req.body.nodes);
+    mongo.connect(url, (err, db) => {
+        if (err) throw err;
+        //console.log("Connected...");
+        const dbo = db.db("userDetails");
+        dbo.collection("flowChart").insertOne({ nodes: req.body.nodes,links:req.body.links }, (err, data) => {
+            if (err) {                    
+                res.status(200).send({c:0});
+            } else {
+                res.status(200).send({c:1});
+            }
+            db.close();
+        });
+
+    })
 })
 
+app.post('/View', (req, res) => {
+    console.log(req.body);
+    payload = req.body;
+    mongo.connect(url, (err, db) => {
+        if (err) throw err;
+        //console.log("Connected...");
+        const dbo = db.db("userDetails");
+        dbo.collection("flowChart").findOne({},(err, data) => {
+            console.log(data);
+            res.status(200).send({chart:data});
+            db.close();
+        });
+
+    })
+})
 
 
 app.listen(3001);
