@@ -22,7 +22,7 @@ Vue.use(VueRouter)
   {
     path:'/about',
     name:'about',
-    component : ()=>import('../components/About.vue')
+    component : ()=>import('../components/about.vue')
   },
   {
     path:'/createNew',
@@ -33,6 +33,26 @@ Vue.use(VueRouter)
     path:'/View',
     name:'View',
     component: ()=>import('../components/ViewChart.vue')
+  },
+  {
+    path:'/about',
+    name:'about',
+    component: ()=>import('../components/about.vue')
+  },
+  {
+    path:'/Privacy',
+    name:'Privacy',
+    component: ()=>import('../components/Privacy.vue')
+  },
+  {
+    path:'/disclaimer',
+    name:'disclaimer',
+    component: ()=>import('../components/disclaimer.vue')
+  },
+  {
+    path:'/terms',
+    name:'terms',
+    component: ()=>import('../components/terms.vue')
   }
  
 ]
