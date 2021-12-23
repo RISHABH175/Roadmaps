@@ -1,86 +1,45 @@
 <template>
+
   <div class="main">
-    <nav
-      class="
-        navbar
-        fixed-top
-        navbar-expand-lg navbar-dark
-        bg-black
-        scrolling-navbar
-      "
-    >
-      <div class="container-fluid">
-        <a class="navbar-brand" href="http://127.0.0.1:5500/home.html"
-          >Roadmaps</a
-        >
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="http://127.0.0.1:5500/home.html"
-                >Home</a
+      
+          
+      
+   <header>
+            <a class="logo" href="/home"><h1>Roadmaps</h1></a>
+            <nav>
+                <ul class="nav__links">
+                    <li><a href="/home">Home</a></li>
+                    <li><a  @click="$router.push({path:'/about'});"> About Us </a></li>
+                    <li><a  @click="$router.push({path:'/Privacy'});">Privacy Policy</a></li>
+                    <li><a  @click="$router.push({path:'/disclaimer'});">Disclaimer</a></li>
+                    <li><a  @click="$router.push({path:'/terms'});">Terms and Conditions</a></li>
+             
+                  
+                </ul>
+            </nav>
+            <a class="cta" v-on:click="$router.push({path:'/View'});"><i class="fas fa-search"></i> Search</a>
+         
+             
+          
+              <a class="cta" v-on:click="$router.push({path:'/createNew'});"><i class="fas fa-plus-circle"></i> Create new</a
               >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Privacy_Policy.html">Privacy Policy</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="TermsAndConditions.html"
-                >Terms and Condition</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Disclaimer.html">Disclaimer</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="a" v-on:click="$router.push({path:'/View'})"
-                ><i class="fas fa-search"></i> Search</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" @click="$router.push({path:'/createNew'});"
-                ><i class="fas fa-plus-circle"></i> Create new</a
-              >
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdownMenuLink"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="far fa-user-circle"></i> Rishabh
-              </a>
-              <ul
-                class="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
-              </ul>
-            </li>
-          </ul>
+            <a class="cta" href="#"><i class="far fa-user-circle"></i>  Profile</a>
+            <a class="cta" href="#"><i class="fas fa-sign-out-alt"></i>  Logout</a>
+            <p class="menu cta">Menu</p>
+        </header>
+        <div class="overlay">
+            <a class="close">&times;</a>
+            <div class="overlay__content">
+                  <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+            </div>
         </div>
-      </div>
-    </nav>
+      
+        
+   
 
     <div class="container">
       <div class="hero">
@@ -173,40 +132,173 @@
   </div>
   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
 </template>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script>
-import router from "../router/index";
+const doc = document;
+const menuOpen = doc.querySelector(".menu");
+const menuClose = doc.querySelector(".close");
+const overlay = doc.querySelector(".overlay");
+
+menuOpen.addEventListener("click", () => {
+  overlay.classList.add("overlay--active");
+});
+
+menuClose.addEventListener("click", () => {
+  overlay.classList.remove("overlay--active");
+});
+
+  </script>
+<script>
+import logo from "../components/logo.png"
 export default {
   name: "HomePage",
   data : {
     logo: 'logo.png'
-  },
-  components:{
-    router
   }
 };
 </script>
 
 <style>
+header {
+  display: flex;
+  width: 100%;
+  height: 70px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+  background-color:black;
+  position:fixed;
+}
+
+.logo {
+  cursor: pointer;
+  text-decoration: none;
+}
+.logo:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav__links a,
+.cta,
+.overlay__content a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #edf0f1;
+  text-decoration: none;
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+}
+
+.nav__links li {
+  padding: 0px 20px;
+}
+
+.nav__links li a {
+  transition: color 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+  color: white;
+  background-color: #000;
+  font-size: 15px;
+  border-bottom: 5px solid rgb(103, 64, 245) ;
+}
+
+.cta {
+  padding: 9px 25px;
+  background-color: rgb(103, 64, 245);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease 0s;
+}
+
+.cta:hover {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+}
+
+/* Mobile Nav */
+
+.menu {
+  display: none;
+}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: #24252a;
+  overflow-x: hidden;
+  transition: width 0.5s ease 0s;
+}
+
+.overlay--active {
+  width: 100%;
+}
+
+.overlay__content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay a {
+  padding: 15px;
+  font-size: 36px;
+  display: block;
+  transition: color 0.3s ease 0s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+  color: #0088a9;
+}
+.overlay .close {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  color: #edf0f1;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 20px;
+  }
+  .overlay .close {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .nav__links,
+  .cta {
+    display: none;
+  }
+  .menu {
+    display: initial;
+  }
+}
+
 .main {
   background-color: black;
   width: 100%;
 }
 .hero {
   background-color: black;
-
   text-align: center;
-}
-
-li:hover {
-  font-size: 20px;
-  border: 5px solid lightblue;
-}
-
-@media screen and (min-width: 780px) {
-  #a {
-    margin-left: 800px;
-  }
 }
 
 
@@ -218,7 +310,6 @@ li:hover {
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-
 .content1{
   position: relative;
   margin: 130px auto;
