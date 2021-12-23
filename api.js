@@ -51,6 +51,10 @@ app.post('/login', (req, res) => {
     })
 })
 
+app.post('/createNew',(req,res)=>{
+    console.log(req.body.nodes);
+    //res.send(req.body.nodes);
+})
 
 
 

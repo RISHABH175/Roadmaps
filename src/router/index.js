@@ -18,6 +18,16 @@ Vue.use(VueRouter)
     path:'/home',
     name:'home',
     component: ()=>import('../components/Home.vue')
+  },
+  {
+    path:'/about',
+    name:'about',
+    component : ()=>import('../components/About.vue')
+  },
+  {
+    path:'/createNew',
+    name:'createNew',
+    component: ()=>import('../components/CreateNew.vue')
   }
  
 ]

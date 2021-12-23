@@ -54,7 +54,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"
+              <a class="nav-link" @click="$router.push({path:'/createNew'});"
                 ><i class="fas fa-plus-circle"></i> Create new</a
               >
             </li>
