@@ -43,7 +43,7 @@ app.post('/login', (req, res) => {
             if (data == null) {                    
                 res.status(200).send({c:0});
             } else {
-                res.status(200).send({c:1});
+                res.status(200).send({c:1,name1:data.name});
             }
             db.close();
         });

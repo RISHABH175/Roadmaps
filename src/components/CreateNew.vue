@@ -120,7 +120,7 @@ export default {
       },
       newNodeType: 0,
       newNodeLabel: "",
-      nodeCategory: ["rule", "action", "script", "decision", "fork", "join"],
+      nodeCategory: ["header","main","sub","advanced"],
     };
   },
   methods: {

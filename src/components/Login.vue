@@ -44,6 +44,7 @@
 <script>
 import axios from "axios";
 import router from "../router/index";
+import Vue from 'vue';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 export default {
   name: "loginInfo",
@@ -59,8 +60,9 @@ export default {
     checkCred() {
       //this.clearForm();
       axios.post("http://localhost:3001/login", this.form).then((response) => {
-        console.log(response);
+        //console.log(response);
         if (response.data.c == 1) {
+          Vue.prototype.$userName = response.data.name1;
           router.push({ path: "/home" });
           //alert("Login done!!")
         }

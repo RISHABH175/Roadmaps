@@ -1,49 +1,55 @@
 <template>
-
   <div class="main">
-      
-          
-      
-   <header>
-            <a class="logo" href="/home"><h1>Roadmaps</h1></a>
-            <nav>
-                <ul class="nav__links">
-                    <li><a href="/home">Home</a></li>
-                    <li><a  @click="$router.push({path:'/about'});"> About Us </a></li>
-                    <li><a  @click="$router.push({path:'/Privacy'});">Privacy Policy</a></li>
-                    <li><a  @click="$router.push({path:'/disclaimer'});">Disclaimer</a></li>
-                    <li><a  @click="$router.push({path:'/terms'});">Terms and Conditions</a></li>
-             
-                  
-                </ul>
-            </nav>
-            <a class="cta" v-on:click="$router.push({path:'/View'});"><i class="fas fa-search"></i> Search</a>
-         
-             
-          
-              <a class="cta" v-on:click="$router.push({path:'/createNew'});"><i class="fas fa-plus-circle"></i> Create new</a
-              >
-            <a class="cta" href="#"><i class="far fa-user-circle"></i>  Profile</a>
-            <a class="cta" href="#"><i class="fas fa-sign-out-alt"></i>  Logout</a>
-            <p class="menu cta">Menu</p>
-        </header>
-        <div class="overlay">
-            <a class="close">&times;</a>
-            <div class="overlay__content">
-                  <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms and Conditions</a></li>
-                    <li><a href="#">Disclaimer</a></li>
-            </div>
-        </div>
-      
-        
-   
+    <header>
+      <a class="logo" href="/home"><h1>Roadmaps</h1></a>
+      <nav>
+        <ul class="nav__links">
+          <li><a href="/home">Home</a></li>
+          <li><a @click="$router.push({ path: '/about' })"> About Us </a></li>
+          <li>
+            <a @click="$router.push({ path: '/Privacy' })">Privacy Policy</a>
+          </li>
+          <li>
+            <a @click="$router.push({ path: '/disclaimer' })">Disclaimer</a>
+          </li>
+          <li>
+            <a @click="$router.push({ path: '/terms' })"
+              >Terms and Conditions</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <div class="cta1">
+        <a class="cta" v-on:click="$router.push({ path: '/View' })"
+          ><i class="fas fa-search"></i> Search</a
+        >
+
+        <a class="cta" v-on:click="$router.push({ path: '/createNew' })"
+          ><i class="fas fa-plus-circle"></i> Create new</a
+        >
+        <a class="cta" href="#"><i class="far fa-user-circle"></i>{{ userNamedisplay }}</a>
+        <a class="cta" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <p class="menu cta">Menu</p>
+      </div>
+    </header>
+    <div class="overlay">
+      <a class="close">&times;</a>
+      <div class="overlay__content">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms and Conditions</a></li>
+        <li><a href="#">Disclaimer</a></li>
+      </div>
+    </div>
 
     <div class="container">
       <div class="hero">
-        <img src="../components/logo.png" alt="Hello!!" style="margin-top: 150px" />
+        <img
+          src="../components/logo.png"
+          alt="Hello!!"
+          style="margin-top: 150px"
+        />
 
         <h3>About this site</h3>
         <svg
@@ -103,7 +109,7 @@
           <div class="content">
             <div class="place">
               <span class="fas fa-map-marker-alt"></span>
-              <span class="text">Vidyaranyapura,Bangalore</span>
+              <span class="text">Bangalore</span>
             </div>
           </div>
         </div>
@@ -139,20 +145,32 @@ const menuClose = doc.querySelector(".close");
 const overlay = doc.querySelector(".overlay");
 
 menuOpen.addEventListener("click", () => {
+  console.log("clicked");
   overlay.classList.add("overlay--active");
 });
 
 menuClose.addEventListener("click", () => {
   overlay.classList.remove("overlay--active");
 });
-
-  </script>
+</script>
 <script>
-import logo from "../components/logo.png"
+import Login from './Login.vue';
 export default {
   name: "HomePage",
-  data : {
-    logo: 'logo.png'
+  data() {
+      return{
+        logo: "logo.png",
+        userNamedisplay:'',
+        doRender: false
+      }
+  },
+  components: {
+    Login
+  },
+  methods:{
+  },
+  created(){
+    this.userNamedisplay = ' '+ this.$userName
   }
 };
 </script>
@@ -164,9 +182,9 @@ header {
   height: 70px;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 10%;
-  background-color:black;
-  position:fixed;
+  padding: 20px 5%;
+  background-color: black;
+  position: fixed;
 }
 
 .logo {
@@ -182,9 +200,15 @@ header {
 .cta,
 .overlay__content a {
   font-family: "Montserrat", sans-serif;
-  font-weight: 500;
+  font-weight: 300;
   color: #edf0f1;
   text-decoration: none;
+}
+
+.cta1 {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
 }
 
 .nav__links {
@@ -194,6 +218,8 @@ header {
 
 .nav__links li {
   padding: 0px 20px;
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .nav__links li a {
@@ -204,7 +230,7 @@ header {
   color: white;
   background-color: #000;
   font-size: 15px;
-  border-bottom: 5px solid rgb(103, 64, 245) ;
+  border-bottom: 5px solid rgb(103, 64, 245);
 }
 
 .cta {
@@ -214,6 +240,7 @@ header {
   border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s ease 0s;
+  white-space: nowrap;
 }
 
 .cta:hover {
@@ -301,79 +328,78 @@ header {
   text-align: center;
 }
 
-
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+* {
   margin: 0;
   padding: 0;
   color: #d9d9d9;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
-.content1{
+.content1 {
   position: relative;
   margin: 130px auto;
   text-align: center;
   padding: 0 20px;
 }
-.content1 .text{
+.content1 .text {
   font-size: 2.5rem;
   font-weight: 600;
   color: #202020;
 }
-.content1 .p{
+.content1 .p {
   font-size: 2.1875rem;
   font-weight: 600;
   color: #202020;
 }
-footer{
-  position:absolute;
-margin: auto;
-width: 100%;
-  background:black;
+footer {
+  position: absolute;
+  margin: auto;
+  width: 100%;
+  background: black;
 }
-.main-content{
+.main-content {
   display: flex;
 }
-.main-content .box{
+.main-content .box {
   flex-basis: 50%;
   padding: 10px 20px;
 }
-.box h2{
+.box h2 {
   font-size: 1.125rem;
   font-weight: 600;
   text-transform: uppercase;
 }
-.box .content{
+.box .content {
   margin: 20px 0 0 0;
   position: relative;
 }
-.box .content:before{
+.box .content:before {
   position: absolute;
-  content: '';
+  content: "";
   top: -10px;
   height: 2px;
   width: 100%;
   background: #1a1a1a;
 }
-.box .content:after{
+.box .content:after {
   position: absolute;
-  content: '';
+  content: "";
   height: 2px;
   width: 15%;
   background: blue;
   top: -10px;
 }
-.left .content p{
+.left .content p {
   text-align: justify;
 }
-.left .content .social{
+.left .content .social {
   margin: 20px 0 0 0;
 }
-.left .content .social a{
+.left .content .social a {
   padding: 0 2px;
 }
-.left .content .social a span{
+.left .content .social a span {
   height: 40px;
   width: 40px;
   background: #1a1a1a;
@@ -383,10 +409,10 @@ width: 100%;
   border-radius: 5px;
   transition: 0.3s;
 }
-.left .content .social a span:hover{
+.left .content .social a span:hover {
   background: #f12020;
 }
-.center .content .fas{
+.center .content .fas {
   font-size: 1.4375rem;
   background: #1a1a1a;
   height: 45px;
@@ -397,26 +423,27 @@ width: 100%;
   transition: 0.3s;
   cursor: pointer;
 }
-.center .content .fas:hover{
+.center .content .fas:hover {
   background: #f12020;
 }
-.center .content .text{
+.center .content .text {
   font-size: 1.0625rem;
   font-weight: 500;
   padding-left: 10px;
 }
-.center .content .phone{
+.center .content .phone {
   margin: 15px 0;
 }
-.right form .text{
+.right form .text {
   font-size: 1.0625rem;
   margin-bottom: 2px;
   color: #656565;
 }
-.right form .msg{
+.right form .msg {
   margin-top: 10px;
 }
-.right form input, .right form textarea{
+.right form input,
+.right form textarea {
   width: 100%;
   font-size: 1.0625rem;
   background: #151515;
@@ -424,16 +451,16 @@ width: 100%;
   border: 1px solid #222222;
 }
 .right form input:focus,
-.right form textarea:focus{
+.right form textarea:focus {
   outline-color: #3498db;
 }
-.right form input{
+.right form input {
   height: 35px;
 }
-.right form .btn{
+.right form .btn {
   margin-top: 10px;
 }
-.right form .btn button{
+.right form .btn button {
   height: 40px;
   width: 100%;
   border: none;
@@ -442,138 +469,137 @@ width: 100%;
   font-size: 1.0625rem;
   font-weight: 500;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
 }
-.right form .btn button:hover{
+.right form .btn button:hover {
   background: #000;
 }
-.bottom center{
+.bottom center {
   padding: 5px;
   font-size: 0.9375rem;
   background: #151515;
 }
-.bottom center span{
+.bottom center span {
   color: #656565;
 }
-.bottom center a{
+.bottom center a {
   color: #f12020;
   text-decoration: none;
 }
-.bottom center a:hover{
+.bottom center a:hover {
   text-decoration: underline;
 }
 @media screen and (max-width: 900px) {
-  footer{
+  footer {
     position: relative;
     bottom: 0px;
   }
-  .main-content{
+  .main-content {
     flex-wrap: wrap;
     flex-direction: column;
   }
-  .main-content .box{
+  .main-content .box {
     margin: 5px 0;
   }
 }
-.container
-{
-    min-width: 100%;
+.container {
+  min-width: 100%;
 }
 .container h2 {
-	font-family: 'Cookie', cursive;
-	font-size: 80px;
+  font-family: "Cookie", cursive;
+  font-size: 80px;
 }
 .container span {
-	position: fixed;
-	bottom: -50px;
-	height: 30px;
-	width: 30px;
-	border-radius: 50%;
-	background: linear-gradient(-135deg, purple, #00ffff);
-	animation: animate 10s linear infinite;
+  position: fixed;
+  bottom: -50px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background: linear-gradient(-135deg, purple, #00ffff);
+  animation: animate 10s linear infinite;
 }
 .container span:nth-child(1) {
-	left: 0;
-	animation-delay: .6s;
-	height: 50px;
-	width: 50px;
+  left: 0;
+  animation-delay: 0.6s;
+  height: 50px;
+  width: 50px;
 }
 .container span:nth-child(2) {
-	left: 10%;
-	animation-delay: 3s;
-	height: 60px;
-	width: 60px;
+  left: 10%;
+  animation-delay: 3s;
+  height: 60px;
+  width: 60px;
 }
 .container span:nth-child(3) {
-	left: 20%;
-	animation-delay: 2s;
-	height: 80px;
-	width: 80px;
+  left: 20%;
+  animation-delay: 2s;
+  height: 80px;
+  width: 80px;
 }
 .container span:nth-child(4) {
-	left: 30%;
-	animation-delay: 5s;
+  left: 30%;
+  animation-delay: 5s;
 }
 .container span:nth-child(5) {
-	left: 40%;
-	animation-delay: 1s;
+  left: 40%;
+  animation-delay: 1s;
 }
 .container span:nth-child(6) {
-	left: 50%;
-	animation-delay: 7s;
-	height: 90px;
-	width: 90px;
+  left: 50%;
+  animation-delay: 7s;
+  height: 90px;
+  width: 90px;
 }
 .container span:nth-child(7) {
-	left: 60%;
-	animation-delay: 6s;
-	height: 120px;
-	width: 120px;
+  left: 60%;
+  animation-delay: 6s;
+  height: 120px;
+  width: 120px;
 }
 .container span:nth-child(8) {
-	left: 70%;
-	animation-delay: 8s;
+  left: 70%;
+  animation-delay: 8s;
 }
 .container span:nth-child(9) {
-	left: 80%;
-	animation-delay: 6s;
-	height: 50px;
-	width: 50px;
+  left: 80%;
+  animation-delay: 6s;
+  height: 50px;
+  width: 50px;
 }
 .container span:nth-child(10) {
-	left: 90%;
-	animation-delay: 4s;
+  left: 90%;
+  animation-delay: 4s;
 }
 @keyframes animate {
-	0% {
-		bottom: 0%;
-		margin-left: 90px;
-		margin-right: 0px;
-	}
-	20% {
-		bottom: 20%;
-		margin-left: 0px;
-		margin-right: 90px;
-	}
-	40% {
-		bottom: 40%;
-		margin-left: 90px;
-		margin-right: 0px;
-	}
-	60% {
-		bottom: 60%;
-		margin-left: 0px;
-		margin-right: 90px;
-	}
-	80% {
-		bottom: 80%;
-		margin-left: 90px;
-		margin-right: 0px;
-	}
-	100% {
-		bottom: 100%;
-		margin-left: 0px;
-		margin-right: 90px;
-	}
+  0% {
+    bottom: 0%;
+    margin-left: 90px;
+    margin-right: 0px;
+  }
+  20% {
+    bottom: 20%;
+    margin-left: 0px;
+    margin-right: 90px;
+  }
+  40% {
+    bottom: 40%;
+    margin-left: 90px;
+    margin-right: 0px;
+  }
+  60% {
+    bottom: 60%;
+    margin-left: 0px;
+    margin-right: 90px;
+  }
+  80% {
+    bottom: 80%;
+    margin-left: 90px;
+    margin-right: 0px;
+  }
+  100% {
+    bottom: 100%;
+    margin-left: 0px;
+    margin-right: 90px;
+  }
 }
 </style>
