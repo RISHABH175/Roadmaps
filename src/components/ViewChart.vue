@@ -28,16 +28,18 @@ export default {
         SimpleFlowchart
     },
     methods:{
-        ret(){
-            axios.post("http://localhost:3001/View",{con:'Connection Made'}).then((res)=>{
-                this.data12.nodes = res.data.chart.nodes;
-                this.data12.links = res.data.chart.links;
-                console.log(res.data.chart)
+        ret(id,mapN){
+            axios.post("http://localhost:3001/View",{con:'Connection Made', mapName : mapN}).then((res)=>{
+                this.data12.nodes = res.data[id].nodes;
+                this.data12.links = res.data[id].links;
+                //console.log(res.data[id].nodes)
             })
         }
     },
     beforeMount(){
-        this.ret();
+        let id = this.$route.query.id
+        let mapN = this.$route.query.mapN
+        this.ret(id,mapN);
     }
 }
 </script>

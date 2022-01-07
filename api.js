@@ -14,7 +14,7 @@ app.post('/signup', (req, res) => {
     payload = req.body;
     mongo.connect(url, (err, db) => {
         if (err) throw err;
-        console.log("Connected...");
+        //console.log("Connected...");
         const dbo = db.db("userDetails");
         dbo.collection("signup").findOne({ email: payload.email }, (err, data) => {
             if (data == null) {
@@ -33,7 +33,7 @@ app.post('/signup', (req, res) => {
 })
 
 app.post('/login', (req, res) => {
-    console.log(req.body);
+    //console.log(req.body);
     payload = req.body;
     mongo.connect(url, (err, db) => {
         if (err) throw err;
@@ -71,16 +71,14 @@ app.post('/createNew',(req,res)=>{
 })
 
 app.post('/View', (req, res) => {
-    console.log(req.body);
-    payload = req.body;
+    //console.log(req.body);
+    let payload = req.body;
     mongo.connect(url, (err, db) => {
         if (err) throw err;
         //console.log("Connected...");
         const dbo = db.db("userDetails");
-        dbo.collection("flowChart").findOne({},(err, data) => {
-            console.log(data);
-            res.status(200).send({chart:data});
-            db.close();
+        dbo.collection("flowChart").find({mapN:payload.mapName}).toArray((err,data)=>{
+            res.status(200).send(data)
         });
 
     })

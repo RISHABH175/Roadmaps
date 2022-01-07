@@ -13,20 +13,25 @@
 
 <script>
 import axios from "axios";
+//import router from '../router/index'
 export default {
   name: "SearchPart",
   data() {
     return {};
   },
   methods: {
+    selectLog: function(val) {
+      console.log("Clicked "+val);
+    },
     logging() {
       let searchVal = document.getElementById("requestChart").value;
       //console.log(searchVal);
+      let len;
       axios
         .post("http://localhost:3001/searchChart", { searchVal1: searchVal })
         .then((resp) => {
-          console.log(resp.data[0].mapN+" "+resp.data[0].mapT)
-          let len = resp.data.length;
+          // console.log(resp.data[0].mapN+" "+resp.data[0].mapT)
+           len = resp.data.length;
           if (len == 0) {
             document.getElementById("searchRes").innerHTML =
               "Roadmaps Unavailable";
@@ -35,10 +40,12 @@ export default {
             for (var i = 0; i < len; i++) {
               document.getElementById(
                 "searchRes"
-              ).innerHTML += "<div class='blocks'><p> Roadmap: " + resp.data[i].mapN +"</p><p> Tag: "+ resp.data[i].mapT +"</div>";
+              ).innerHTML += `<div id="card${i}" class='blocks'><p>Name: ${resp.data[i].mapN}</p><p>Tag: ${resp.data[i].mapT}</p><button ><a href="http://localhost:8080/View?id=${i}&mapN=${resp.data[i].mapN}">Click!</a></button></div>`;
+              //document.getElementById(`card${i}`).addEventListener("click",this.selectLog(i));
             }
           }
         });
+        
     },
   },
 };
@@ -81,5 +88,9 @@ button {
   border-radius: 15px;
   border-style: solid;
   padding: 10px;
+}
+
+a{
+  color: black;
 }
 </style>
