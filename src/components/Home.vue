@@ -20,7 +20,7 @@
         </ul>
       </nav>
       <div class="cta1">
-        <a class="cta" v-on:click="$router.push({ path: '/View' })"
+        <a class="cta" v-on:click="$router.push({ path: '/search' })"
           ><i class="fas fa-search"></i> Search</a
         >
 
@@ -154,6 +154,7 @@ menuClose.addEventListener("click", () => {
 });
 </script>
 <script>
+import Vue from 'vue'
 import Login from './Login.vue';
 export default {
   name: "HomePage",
@@ -170,6 +171,7 @@ export default {
   methods:{
   },
   created(){
+    Vue.prototype.userName = this.$userName
     this.userNamedisplay = ' '+ this.$userName
   }
 };

@@ -53,6 +53,11 @@ Vue.use(VueRouter)
     path:'/terms',
     name:'terms',
     component: ()=>import('../components/terms.vue')
+  },
+  {
+    path:'/search',
+    name:'search',
+    component: ()=>import('../components/Search.vue')
   }
  
 ]

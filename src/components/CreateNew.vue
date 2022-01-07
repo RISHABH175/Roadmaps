@@ -32,9 +32,25 @@
           v-model="newNodeLabel"
           placeholder="Input node label"
         />
+
         <button>ADD</button>
       </form>
       <form v-on:submit.prevent="save">
+        <input
+          id="roadmapName"
+          type="text"
+          placeholder="Roadmap Name"
+          maxlength="15"
+        />
+        <select id="mapTags">
+          <option
+            v-for="(item1, index1) in mapTag"
+            :key="index1"
+            :value="index1"
+          >
+            {{ item1 }}
+          </option>
+        </select>
         <button>Save</button>
       </form>
     </div>
@@ -120,7 +136,8 @@ export default {
       },
       newNodeType: 0,
       newNodeLabel: "",
-      nodeCategory: ["header","main","sub","advanced"],
+      nodeCategory: ["header", "main", "sub", "advanced"],
+      mapTag: ["Beginner", "Intermediate", "Advanced"],
     };
   },
   methods: {
@@ -180,16 +197,24 @@ export default {
     linkAdded(link) {
       console.log("new link added:", link);
     },
-    save(){
-        console.log(this.data12.nodes);
-        console.log(this.data12.links);
-         axios.post("http://localhost:3001/createNew", this.data12)
+    save() {
+      // console.log(this.data12.nodes);
+      // console.log(this.data12.links);
+      // console.log(document.getElementById('roadmapName').value)
+      // console.log(document.getElementById('mapTags').value);
+      console.log(this.mapTag[document.getElementById("mapTags").value]);
+      axios
+        .post("http://localhost:3001/createNew", {
+          data123: this.data12,
+          mapN: document.getElementById("roadmapName").value,
+          mapT: this.mapTag[document.getElementById("mapTags").value],
+        })
         .then((resp) => {
-          if(resp.data.c == 1){
-            alert('Roadmap Saved');
+          if (resp.data.c == 1) {
+            alert("Roadmap Saved");
           }
         });
-    }
+    },
   },
   components: {
     SimpleFlowchart,
