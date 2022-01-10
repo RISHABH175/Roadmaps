@@ -19,11 +19,7 @@ Vue.use(VueRouter)
     name:'home',
     component: ()=>import('../components/Home.vue')
   },
-  {
-    path:'/about',
-    name:'about',
-    component : ()=>import('../components/about.vue')
-  },
+
   {
     path:'/createNew',
     name:'createNew',
@@ -34,11 +30,7 @@ Vue.use(VueRouter)
     name:'View',
     component: ()=>import('../components/ViewChart.vue')
   },
-  {
-    path:'/about',
-    name:'about',
-    component: ()=>import('../components/about.vue')
-  },
+
   {
     path:'/Privacy',
     name:'Privacy',
