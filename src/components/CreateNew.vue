@@ -16,10 +16,11 @@
                     @dblclick="handleDblClick" @editconnection="handleEditConnection" 
                     @save="handleChartSave" ref="chart">
         </flowchart> -->
-    <div class="tool-wrapper">
-      <form v-on:submit.prevent="addNode">
-        <select v-model="newNodeType">
-          <option
+    <div class="tool-wrapper" >
+      <h1>Create New Roadmap</h1>
+      <form   v-on:submit.prevent="addNode">
+        <select  v-model="newNodeType">
+          <option  
             v-for="(item, index) in nodeCategory"
             :key="index"
             :value="index"
@@ -27,22 +28,34 @@
             {{ item }}
           </option>
         </select>
-        <input
+        <input 
           type="text"
           v-model="newNodeLabel"
           placeholder="Input node label"
+          
         />
 
         <button>ADD</button>
       </form>
+     
+<form >
+        <input  
+          id="authorName"
+          type="text"
+          placeholder="Enter the Author Name"
+          maxlength="15"
+        />
+         
+</form>
+    
       <form v-on:submit.prevent="save">
-        <input
+        <input  
           id="roadmapName"
           type="text"
           placeholder="Roadmap Name"
           maxlength="15"
         />
-        <select id="mapTags">
+        <select   id="mapTags">
           <option
             v-for="(item1, index1) in mapTag"
             :key="index1"
@@ -54,7 +67,7 @@
         <button>Save</button>
       </form>
     </div>
-    <SimpleFlowchart
+    <SimpleFlowchart style="background-color:black"
       :scene.sync="data12"
       @nodeClick="nodeClick"
       @nodeDelete="nodeDelete"
@@ -206,8 +219,10 @@ export default {
       axios
         .post("http://localhost:3001/createNew", {
           data123: this.data12,
+          mapA: document.getElementById("authorName").value,
           mapN: document.getElementById("roadmapName").value,
-          mapT: this.mapTag[document.getElementById("mapTags").value],
+          mapT: this.mapTag[document.getElementById("mapTags").value]
+          
         })
         .then((resp) => {
           if (resp.data.c == 1) {
@@ -223,18 +238,20 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&display=swap');
 .create {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: white;
   margin: 0;
   overflow: hidden;
   height: 1000px;
 }
 .tool-wrapper {
   position: relative;
+ 
 }
 /* .create {
   height: 100%;
@@ -261,5 +278,37 @@ export default {
 .container {
   width: 800px;
   margin: auto;
+}
+input{
+  color:black;
+  background-color:white;
+  margin-right: 20px;
+}
+option{
+  color:black;
+  background-color:white;
+    
+}
+select{
+  color:black;
+  background-color:white;
+  margin-right: 20px;
+}
+button{
+  color:white;
+  background-color:white;
+   padding: 9px 25px;
+  background-color: rgb(103, 64, 245);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease 0s;
+  white-space: nowrap;
+    margin-bottom: 20px;
+
+}
+h1{
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 80px;
 }
 </style>
