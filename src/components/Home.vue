@@ -158,18 +158,7 @@
     </div>
     <footer>
       <div class="main-content">
-        <div class="left box">
-          <h2>About us</h2>
-          <div class="content">
-            <p>...</p>
-            <div class="social">
-              <a href="#"><span class="fab fa-facebook-f"></span></a>
-              <a href="#"><span class="fab fa-twitter"></span></a>
-              <a href="#"><span class="fab fa-instagram"></span></a>
-              <a href="#"><span class="fab fa-youtube"></span></a>
-            </div>
-          </div>
-        </div>
+     
         <div class="center box">
           <h2>Address</h2>
           <div class="content">
