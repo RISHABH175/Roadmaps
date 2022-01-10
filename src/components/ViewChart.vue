@@ -1,6 +1,6 @@
 <template>
   <div class="view">
-      <h1>FlowChart</h1>
+      <h1 style="color:white">FlowChart</h1>
        <SimpleFlowchart
       :scene.sync="data12"
       :height="800"
