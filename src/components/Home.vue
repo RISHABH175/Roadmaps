@@ -1,11 +1,10 @@
 <template>
   <div class="main">
     <header>
-      <a class="logo" href="/home"><h1>Roadmaps</h1></a>
+      <a class="logo" href="/home"><h1 class="logo">GUIDEGRID</h1></a>
       <nav>
         <ul class="nav__links">
           <li><a href="/home">Home</a></li>
-          <li><a @click="$router.push({ path: '/about' })"> About Us </a></li>
           <li>
             <a @click="$router.push({ path: '/Privacy' })">Privacy Policy</a>
           </li>
@@ -36,7 +35,6 @@
       <a class="close">&times;</a>
       <div class="overlay__content">
         <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
         <li><a href="#">Privacy Policy</a></li>
         <li><a href="#">Terms and Conditions</a></li>
         <li><a href="#">Disclaimer</a></li>
@@ -51,7 +49,7 @@
           style="margin-top: 150px"
         />
 
-        <h3>About this site</h3>
+        <h5 style="font-size:30px">Best Place For Your Career Growth</h5>
         <svg
           width="100%"
           height="100%"
@@ -59,6 +57,7 @@
           viewBox="0 0 1440 400"
           xmlns="http://www.w3.org/2000/svg"
           class="transition duration-300 ease-in-out delay-150"
+         
         >
           <defs>
             <linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%">
@@ -89,6 +88,73 @@
         <span></span>
         <span></span>
       </div>
+    </div>
+    <div style="margin-top:50px">
+      <h3 style="margin-bottom:20px">Welcome to GuideGrid</h3>
+      <h4 style="margin-bottom:40px">GuideGride is a community effort to create roadmaps, guides and other educational content to help guide the developers in picking up the path and guide their learnings.</h4>
+      <div class="row">
+  <div class="column">
+    <div class="card">
+      <h2>FrontEnd</h2>
+      <p>Step by step guide to become a frontend developer in 2022</p>
+      <button>Click Me!</button>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card">
+      <h2>FrontEnd</h2>
+      <p>Step by step guide to become a frontend developer in 2022</p>
+      <button>Click Me!</button>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card">
+      <h2>FrontEnd</h2>
+      <p>Step by step guide to become a frontend developer in 2022</p>
+      <button>Click Me!</button>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card">
+      <h2>FrontEnd</h2>
+      <p>Step by step guide to become a frontend developer in 2022</p>
+      <button>Click Me!</button>
+    </div>
+  </div>
+
+
+</div>
+      <div class="row" style="margin-top:20px">
+  <div class="column">
+    <div class="card">
+      <h2>FrontEnd</h2>
+      <p>Step by step guide to become a frontend developer in 2022</p>
+      <button>Click Me!</button>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card">
+      <h2>FrontEnd</h2>
+      <p>Step by step guide to become a frontend developer in 2022</p>
+      <button>Click Me!</button>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card">
+      <h2>FrontEnd</h2>
+      <p>Step by step guide to become a frontend developer in 2022</p>
+      <button>Click Me!</button>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card">
+      <h2>FrontEnd</h2>
+      <p>Step by step guide to become a frontend developer in 2022</p>
+      <button>Click Me!</button>
+    </div>
+  </div>
+
+</div>
     </div>
     <footer>
       <div class="main-content">
@@ -131,7 +197,7 @@
         <center>
           <span class="credit">Created By Team 4 <a href="#"></a> | </span>
           <span class="far fa-copyright"></span
-          ><span> 2021 All rights reserved.</span>
+          ><span> 2022 All rights reserved.</span>
         </center>
       </div>
     </footer>
@@ -178,6 +244,75 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&display=swap');
+h3 {
+font-size: 30px;
+text-align: center;
+   font-family: 'Cinzel Decorative', cursive;
+
+}
+
+h4{
+   text-align: center;
+}
+button {
+  margin-left:20px;
+  margin-top:20px;
+  padding: 9px 25px;
+  background-color: rgb(103, 64, 245);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease 0s;
+  white-space: nowrap;
+}
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  z-index: 10;
+  position:relative;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  border: 5px solid  white;
+  background-color: rgb(36, 35, 35);
+  color: white;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+h1{
+    font-family: 'Cinzel Decorative', cursive;
+    text-align: center;
+
+}
 header {
   display: flex;
   width: 100%;
@@ -192,12 +327,19 @@ header {
 .logo {
   cursor: pointer;
   text-decoration: none;
+ font-family: 'Audiowide', cursive;
+ font-size: 30px;
 }
 .logo:hover {
   cursor: pointer;
   text-decoration: none;
+  font-family: 'Audiowide', cursive;
+  font-size: 30px;
 }
-
+a
+{
+    text-decoration: none;
+}
 .nav__links a,
 .cta,
 .overlay__content a {
@@ -312,6 +454,17 @@ header {
 }
 
 @media only screen and (max-width: 800px) {
+  header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 70px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  background-color: black;
+  position: fixed;
+}
   .nav__links,
   .cta {
     display: none;
@@ -355,7 +508,8 @@ header {
   color: #202020;
 }
 footer {
-  position: absolute;
+  position:relative;
+  bottom: 0;
   margin: auto;
   width: 100%;
   background: black;
@@ -389,7 +543,7 @@ footer {
   content: "";
   height: 2px;
   width: 15%;
-  background: blue;
+  background: rgb(103, 64, 245);
   top: -10px;
 }
 .left .content p {
