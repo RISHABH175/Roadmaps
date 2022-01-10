@@ -6,8 +6,8 @@
       <p>Last updated: 2021-06-14</p>
       <h2><b>WEBSITE DISCLAIMER</b></h2>
       <p>
-        The information provided by <b>Roadmaps</b> (“Company”, “we”, “our”,
-        “us”) on <b>https://rishabh175.github.io/Roadmaps/</b> (the “Site”) is
+        The information provided by <b>GUIDEGRID</b> (“Company”, “we”, “our”,
+        “us”) on <b>https://rishabh175.github.io/GUIDEGRID/</b> (the “Site”) is
         for general informational purposes only. All information on the Site is
         provided in good faith, however we make no representation or warranty of
         a ny kind, express or implied, regarding the accuracy, adequacy,
@@ -66,7 +66,7 @@
         of legal advice.
       </p>
       <p>
-        Content published on https://rishabh175.github.io/Roadmaps/ is intended
+        Content published on https://rishabh175.github.io/GUIDEGRID/ is intended
         to be used and must be used for informational purposes only. It is very
         important to do your own analysis before making any decision based on
         your own personal circumstances. You should take independent legal
@@ -109,7 +109,7 @@
     <h2><b>ERRORS AND OMISSIONS DISCLAIMER</b></h2>
     <p>
       While we have made every attempt to ensure that the information contained
-      in this site has been obtained from reliable sources, Roadmaps is not
+      in this site has been obtained from reliable sources, GUIDEGRID is not
       responsible for any errors or omissions or for the results obtained from
       the use of this information. All information in this site is provided “as
       is”, with no guarantee of completeness, accuracy, timeliness or of the
@@ -118,7 +118,7 @@
       performance, merchantability, and fitness for a particular purpose.
     </p>
     <p>
-      In no event will Roadmaps, its related partnerships or corporations, or
+      In no event will GUIDEGRID, its related partnerships or corporations, or
       the partners, agents or employees thereof be liable to you or anyone else
       for any decision made or action taken in reliance on the information in
       this Site or for any consequential, special or similar damages, even if
@@ -128,10 +128,10 @@
       <h2><b>LOGOS AND TRADEMARKS DISCLAIMER</b></h2>
       <p>
         All logos and trademarks of third parties referenced on
-        https://rishabh175.github.io/Roadmaps/ are the trademarks and logos of
+        https://rishabh175.github.io/GUIDEGRID/ are the trademarks and logos of
         their respective owners. Any inclusion of such trademarks or logos does
         not imply or constitute any approval, endorsement or sponsorship of
-        Roadmaps by such owners.
+        GUIDEGRID by such owners.
       </p>
       <h2><b>CONTACT US</b></h2>
       <p>
@@ -144,7 +144,7 @@
         <a href="https://policymaker.io/disclaimer/" style="color: white"
           >Disclaimer</a
         >
-        was created for <b>https://rishabh175.github.io/Roadmaps/</b> by
+        was created for <b>https://rishabh175.github.io/GUIDEGRID/</b> by
         <a href="https://policymaker.io" style="color: white">PolicyMaker.io</a>
         on 2021-06-14.
       </p>
