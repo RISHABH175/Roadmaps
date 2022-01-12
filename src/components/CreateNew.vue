@@ -37,8 +37,8 @@
 
         <button>ADD</button>
       </form>
-     
-<form >
+    
+      <form v-on:submit.prevent="save">
         <input  
           id="authorName"
           type="text"
@@ -46,9 +46,6 @@
           maxlength="15"
         />
          
-</form>
-    
-      <form v-on:submit.prevent="save">
         <input  
           id="roadmapName"
           type="text"

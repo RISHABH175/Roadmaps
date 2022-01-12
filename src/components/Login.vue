@@ -44,8 +44,10 @@
 <script>
 import axios from "axios";
 import router from "../router/index";
-import Vue from 'vue';
+// import Vue from 'vue';
 //import 'bootstrap/dist/css/bootstrap.min.css';
+// const app1 = Vue.createApp({});
+
 export default {
   name: "loginInfo",
   data() {
@@ -62,7 +64,10 @@ export default {
       axios.post("http://localhost:3001/login", this.form).then((response) => {
         //console.log(response);
         if (response.data.c == 1) {
-          Vue.prototype.$userName = response.data.name1;
+          // Vue.prototype.$userName = response.data.name1;
+          // app1.config.globalProperties.userName1 = response.data.name1 
+          // document.cookie ="userName1="+response.data.name1+"; path='/home'";
+          localStorage.setItem("username2",response.data.name1);
           router.push({ path: "/home" });
           //alert("Login done!!")
         }

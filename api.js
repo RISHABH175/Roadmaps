@@ -58,7 +58,7 @@ app.post('/createNew',(req,res)=>{
         if (err) throw err;
         //console.log("Connected...");
         const dbo = db.db("userDetails");
-        dbo.collection("flowChart").insertOne({ nodes: req.body.data123.nodes,links:req.body.data123.links,mapT:req.body.mapT,mapN:req.body.mapN }, (err, data) => {
+        dbo.collection("flowChart").insertOne({ nodes: req.body.data123.nodes,links:req.body.data123.links,mapT:req.body.mapT,mapN:req.body.mapN,mapA:req.body.mapA }, (err, data) => {
             if (err) {                    
                 res.status(200).send({c:0});
             } else {
@@ -91,6 +91,23 @@ app.post('/searchChart',(req,res)=>{
         //console.log("Connected...");
         const dbo = db.db("userDetails");
         dbo.collection("flowChart").find({mapN: mapName},{mapN:1,mapT:1,links:0,nodes:0}).toArray((err,data)=>{
+            //console.log(data);
+            if(data==null){
+                res.status(200).send({error:'Invalid search'});
+            }
+            else{
+                res.status(200).send(data)
+            }
+        })
+    })
+})
+
+app.post('/homeDisplay',(req,res)=>{
+    mongo.connect(url, (err, db) => {
+        if (err) throw err;
+        //console.log("Connected...");
+        const dbo = db.db("userDetails");
+        dbo.collection("flowChart").find({},{mapN:1,mapT:1}).limit(4).toArray((err,data)=>{
             //console.log(data);
             if(data==null){
                 res.status(200).send({error:'Invalid search'});

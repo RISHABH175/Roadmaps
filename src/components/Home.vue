@@ -26,9 +26,13 @@
         <a class="cta" v-on:click="$router.push({ path: '/createNew' })"
           ><i class="fas fa-plus-circle"></i> Create new</a
         >
-        <a class="cta" href="#"><i class="far fa-user-circle"></i>{{ userNamedisplay }}</a>
-        <a class="cta" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
-        <p class="menu cta">Menu</p>
+        <a class="cta" href="#"
+          ><i class="far fa-user-circle"></i>{{ userNamedisplay }}</a
+        >
+        <a class="cta" v-on:click="$router.push({ path: '/login' })"
+          ><i class="fas fa-sign-out-alt"></i> Logout</a
+        >
+        <p id="mobile" class="menu cta">Menu</p>
       </div>
     </header>
     <div class="overlay">
@@ -49,7 +53,7 @@
           style="margin-top: 150px"
         />
 
-        <h5 style="font-size:30px">Best Place For Your Career Growth</h5>
+        <h5 style="font-size: 30px">Best Place For Your Career Growth</h5>
         <svg
           width="100%"
           height="100%"
@@ -57,7 +61,6 @@
           viewBox="0 0 1440 400"
           xmlns="http://www.w3.org/2000/svg"
           class="transition duration-300 ease-in-out delay-150"
-         
         >
           <defs>
             <linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%">
@@ -89,76 +92,17 @@
         <span></span>
       </div>
     </div>
-    <div style="margin-top:50px">
-      <h3 style="margin-bottom:20px">Welcome to GuideGrid</h3>
-      <h4 style="margin-bottom:40px">GuideGride is a community effort to create roadmaps, guides and other educational content to help guide the developers in picking up the path and guide their learnings.</h4>
-      <div class="row">
-  <div class="column">
-    <div class="card">
-      <h2>FrontEnd</h2>
-      <p>Step by step guide to become a frontend developer in 2022</p>
-      <button>Click Me!</button>
-    </div>
-  </div>
-  <div class="column">
-    <div class="card">
-      <h2>FrontEnd</h2>
-      <p>Step by step guide to become a frontend developer in 2022</p>
-      <button>Click Me!</button>
-    </div>
-  </div>
-  <div class="column">
-    <div class="card">
-      <h2>FrontEnd</h2>
-      <p>Step by step guide to become a frontend developer in 2022</p>
-      <button>Click Me!</button>
-    </div>
-  </div>
-  <div class="column">
-    <div class="card">
-      <h2>FrontEnd</h2>
-      <p>Step by step guide to become a frontend developer in 2022</p>
-      <button>Click Me!</button>
-    </div>
-  </div>
-
-
-</div>
-      <div class="row" style="margin-top:20px">
-  <div class="column">
-    <div class="card">
-      <h2>FrontEnd</h2>
-      <p>Step by step guide to become a frontend developer in 2022</p>
-      <button>Click Me!</button>
-    </div>
-  </div>
-  <div class="column">
-    <div class="card">
-      <h2>FrontEnd</h2>
-      <p>Step by step guide to become a frontend developer in 2022</p>
-      <button>Click Me!</button>
-    </div>
-  </div>
-  <div class="column">
-    <div class="card">
-      <h2>FrontEnd</h2>
-      <p>Step by step guide to become a frontend developer in 2022</p>
-      <button>Click Me!</button>
-    </div>
-  </div>
-  <div class="column">
-    <div class="card">
-      <h2>FrontEnd</h2>
-      <p>Step by step guide to become a frontend developer in 2022</p>
-      <button>Click Me!</button>
-    </div>
-  </div>
-
-</div>
+    <div style="margin-top: 50px">
+      <h3 style="margin-bottom: 20px">Welcome to GuideGrid</h3>
+      <h4 style="margin-bottom: 40px">
+        GuideGride is a community effort to create roadmaps, guides and other
+        educational content to help guide the developers in picking up the path
+        and guide their learnings.
+      </h4>
+      <div id="row1" class="row"></div>
     </div>
     <footer>
       <div class="main-content">
-     
         <div class="center box">
           <h2>Address</h2>
           <div class="content">
@@ -193,60 +137,86 @@
   </div>
   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
 </template>
-<script>
-const doc = document;
-const menuOpen = doc.querySelector(".menu");
-const menuClose = doc.querySelector(".close");
-const overlay = doc.querySelector(".overlay");
 
-menuOpen.addEventListener("click", () => {
-  console.log("clicked");
-  overlay.classList.add("overlay--active");
-});
-
-menuClose.addEventListener("click", () => {
-  overlay.classList.remove("overlay--active");
-});
-</script>
 <script>
-import Vue from 'vue'
-import Login from './Login.vue';
+// import Vue from "vue";
+//import Login from "./Login.vue";
+import axios from "axios";
 export default {
   name: "HomePage",
   data() {
-      return{
-        logo: "logo.png",
-        userNamedisplay:'',
-        doRender: false
-      }
+    return {
+      logo: "logo.png",
+      userNamedisplay: "",
+      doRender: false,
+    };
   },
-  components: {
-    Login
+  components: {},
+  methods: {},
+  beforeCreate() {
+    console.log("Hey");
+    // console.log(document.cookie);
+    // const res = decodeURIComponent(document.cookie);
+    // const res1 = "userName1=";
+    // const res2 = res.indexOf(res1);
   },
-  methods:{
+  created() {
+    // Vue.prototype.userName = this.$userName;
+    // this.userNamedisplay = " " + this.$userName;
   },
-  created(){
-    Vue.prototype.userName = this.$userName
-    this.userNamedisplay = ' '+ this.$userName
-  }
+  beforeMount(){
+    axios
+      .post("http://localhost:3001/homeDisplay", { info: "Info" })
+      .then((resp) => {
+        let len = resp.data.length;
+        if (len == 0) {
+          document.getElementById("row1").innerHTML =
+            "Roadmaps Unavailable";
+        } else {
+          document.getElementById("row1").innerHTML = "";
+          for (var i = 0; i < len; i++) {
+            document.getElementById(
+              "row1"
+            ).innerHTML += `<div  class='card'><p style="  color:white;">Name: ${resp.data[i].mapN}</p><p style="  color:white;">Author Name: ${resp.data[i].mapA}</p><p style="  color:white;">Tag: ${resp.data[i].mapT}</p><button><a href="http://localhost:8080/View?id=${i}&mapN=${resp.data[i].mapN}">Click!</a></button></div>`;
+            //document.getElementById(`card${i}`).addEventListener("click",this.selectLog(i));
+          }
+        }
+      });
+  },
+  mounted() {
+    
+    this.userNamedisplay = localStorage.getItem("username2");
+    const doc = document;
+    const menuOpen = doc.getElementById("mobile");
+    const menuClose = doc.querySelector(".close");
+    const overlay = doc.querySelector(".overlay");
+
+    menuOpen.addEventListener("click", () => {
+      console.log("clicked");
+      overlay.classList.add("overlay--active");
+    });
+
+    menuClose.addEventListener("click", () => {
+      overlay.classList.remove("overlay--active");
+    });
+  },
 };
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&display=swap");
 h3 {
-font-size: 30px;
-text-align: center;
-   font-family: 'Cinzel Decorative', cursive;
-
+  font-size: 30px;
+  text-align: center;
+  font-family: "Cinzel Decorative", cursive;
 }
 
-h4{
-   text-align: center;
+h4 {
+  text-align: center;
 }
 button {
-  margin-left:20px;
-  margin-top:20px;
+  margin-left: 20px;
+  margin-top: 20px;
   padding: 9px 25px;
   background-color: rgb(103, 64, 245);
   color: white;
@@ -263,7 +233,9 @@ button {
 }
 
 /* Remove extra left and right margins, due to padding in columns */
-.row {margin: 0 -5px;}
+.row {
+  margin: 0 -5px;
+}
 
 /* Clear floats after the columns */
 .row:after {
@@ -275,11 +247,11 @@ button {
 /* Style the counter cards */
 .card {
   z-index: 10;
-  position:relative;
+  position: relative;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
   padding: 16px;
   text-align: center;
-  border: 5px solid  white;
+  border: 5px solid white;
   background-color: rgb(36, 35, 35);
   color: white;
 }
@@ -293,14 +265,11 @@ button {
   }
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
 
-
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
-
-h1{
-    font-family: 'Cinzel Decorative', cursive;
-    text-align: center;
-
+h1 {
+  font-family: "Cinzel Decorative", cursive;
+  text-align: center;
 }
 header {
   display: flex;
@@ -316,18 +285,17 @@ header {
 .logo {
   cursor: pointer;
   text-decoration: none;
- font-family: 'Audiowide', cursive;
- font-size: 30px;
+  font-family: "Audiowide", cursive;
+  font-size: 30px;
 }
 .logo:hover {
   cursor: pointer;
   text-decoration: none;
-  font-family: 'Audiowide', cursive;
+  font-family: "Audiowide", cursive;
   font-size: 30px;
 }
-a
-{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 .nav__links a,
 .cta,
@@ -444,16 +412,16 @@ a
 
 @media only screen and (max-width: 800px) {
   header {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 70px;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 5%;
-  background-color: black;
-  position: fixed;
-}
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 70px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: black;
+    position: fixed;
+  }
   .nav__links,
   .cta {
     display: none;
@@ -497,7 +465,7 @@ a
   color: #202020;
 }
 footer {
-  position:relative;
+  position: relative;
   bottom: 0;
   margin: auto;
   width: 100%;
