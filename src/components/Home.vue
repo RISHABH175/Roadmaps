@@ -38,12 +38,36 @@
     <div class="overlay">
       <a class="close">&times;</a>
       <div class="overlay__content">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms and Conditions</a></li>
-        <li><a href="#">Disclaimer</a></li>
+     
+          <li><a href="/home">Home</a></li>
+          <li>
+            <a @click="$router.push({ path: '/Privacy' })">Privacy Policy</a>
+          </li>
+          <li>
+            <a @click="$router.push({ path: '/disclaimer' })">Disclaimer</a>
+          </li>
+          <li>
+            <a @click="$router.push({ path: '/terms' })"
+              >Terms and Conditions</a
+            >
+          </li>
+        
+      
+          <a class="cta" v-on:click="$router.push({ path: '/search' })"
+          ><i class="fas fa-search"></i> Search</a
+        >
+         <a class="cta" v-on:click="$router.push({ path: '/createNew' })"
+          ><i class="fas fa-plus-circle"></i> Create new</a
+        >
+        <a class="cta" href="#"
+          ><i class="far fa-user-circle"></i>{{ userNamedisplay }}</a
+        >
+        <a class="cta" v-on:click="$router.push({ path: '/login' })"
+          ><i class="fas fa-sign-out-alt"></i> Logout</a
+        >
+        </div>
       </div>
-    </div>
+    
 
     <div class="container">
       <div class="hero">
@@ -219,12 +243,23 @@ button {
   margin-top: 20px;
   padding: 9px 25px;
   background-color: rgb(103, 64, 245);
-  color: white;
+  color:white;
   border: none;
   border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s ease 0s;
   white-space: nowrap;
+}
+a {
+text-decoration: none;
+color: white;
+
+}
+a:hover{
+text-decoration: none;
+color: white;
+font-size: 20px;
+
 }
 .column {
   float: left;
@@ -235,6 +270,8 @@ button {
 /* Remove extra left and right margins, due to padding in columns */
 .row {
   margin: 0 -5px;
+  gap: 1rem;
+  justify-content: center;
 }
 
 /* Clear floats after the columns */
@@ -246,7 +283,7 @@ button {
 
 /* Style the counter cards */
 .card {
-  z-index: 10;
+  width: 400px;
   position: relative;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
   padding: 16px;
@@ -254,6 +291,10 @@ button {
   border: 5px solid white;
   background-color: rgb(36, 35, 35);
   color: white;
+  
+}
+.cta{
+  margin-bottom: 20px;
 }
 
 /* Responsive columns - one column layout (vertical) on small screens */
@@ -263,6 +304,30 @@ button {
     display: block;
     margin-bottom: 20px;
   }
+  .row {
+  margin: 0 -5px;
+  gap: 1rem;
+  justify-content: center;
+}
+.card {
+  width: 400px;
+  position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  border: 5px solid white;
+  background-color: rgb(36, 35, 35);
+  color: white;
+  
+}
+.cta{
+  margin-bottom: 20px;
+}
+li
+{
+  list-style:none ;
+  cursor: pointer;
+}
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
@@ -280,6 +345,7 @@ header {
   padding: 20px 5%;
   background-color: black;
   position: fixed;
+  z-index: 10;
 }
 
 .logo {
@@ -350,6 +416,11 @@ a {
   text-decoration: none;
 }
 
+.row {
+  margin: 0 -5px;
+  gap: 1rem;
+  justify-content: center;
+}
 /* Mobile Nav */
 
 .menu {
@@ -386,14 +457,19 @@ a {
   display: block;
   transition: color 0.3s ease 0s;
 }
+a:hover
+{
+  color: #b9e712;
+
+}
 
 .overlay a:hover,
 .overlay a:focus {
-  color: #0088a9;
+  color: #b9e712;
 }
 .overlay .close {
   position: absolute;
-  top: 20px;
+  top: 50px;
   right: 45px;
   font-size: 60px;
   color: #edf0f1;
@@ -403,11 +479,37 @@ a {
   .overlay a {
     font-size: 20px;
   }
+  .cta{
+  margin-bottom: 20px;
+}
+  a:hover
+{
+  color: #b9e712;
+
+}
+  li
+{
+  list-style:none ;
+  cursor: pointer;
+}
   .overlay .close {
     font-size: 40px;
-    top: 15px;
+    top: 35px;
     right: 35px;
+    color: white;
   }
+  .card {
+  width: 400px;
+  position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  border: 5px solid white;
+  background-color: rgb(36, 35, 35);
+  color: white;
+  
+}
+  
 }
 
 @media only screen and (max-width: 800px) {
@@ -422,6 +524,20 @@ a {
     background-color: black;
     position: fixed;
   }
+  a:hover
+{
+  color: #b9e712;
+
+}
+  li
+{
+  list-style:none ;
+  cursor: pointer;
+}
+  li:hover
+{
+    color: #b9e712;
+}
   .nav__links,
   .cta {
     display: none;
@@ -430,7 +546,18 @@ a {
     display: initial;
   }
 }
-
+.card {
+  z-index: 0;
+  width: 400px;
+  position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  border: 5px solid white;
+  background-color: rgb(36, 35, 35);
+  color: white;
+  
+}
 .main {
   background-color: black;
   width: 100%;
