@@ -5,10 +5,10 @@
      </div>
     <div class="inner-block" >
     <form v-on:submit.prevent="checkCred">
-      <h3>Login</h3>
+      <h3 style="color:black" >Login</h3>
 
       <div class="form-group">
-        <label>Email address</label>
+        <label style="color:black">Email address</label>
         <input
           type="email"
           class="form-control form-control-lg"
@@ -17,7 +17,7 @@
       </div>
 
       <div class="form-group">
-        <label>Password</label>
+        <label style="color:black">Password</label>
         <input
           type="password"
           class="form-control form-control-lg"
@@ -28,13 +28,13 @@
       <button
         type="submit"
         class="btn btn-dark btn-lg btn-block"
-        style="margin-bottom: 20px"
+        style="margin-bottom: 20px color:black"
       >
         Login
       </button>
-      <p class="forgot-password text-right">
+      <p class="forgot-password text-right " style="color:black">
         New User 
-        <router-link :to="{ name: 'signup' }">sign up?</router-link>
+        <router-link :to="{ name: 'signup' }" style="color:blue">sign up?</router-link>
       </p>
     </form>
   </div>
