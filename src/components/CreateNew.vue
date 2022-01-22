@@ -17,7 +17,7 @@
                     @save="handleChartSave" ref="chart">
         </flowchart> -->
     <div class="tool-wrapper" >
-      <h1>Create New Roadmap</h1>
+      <h1 id="bk">Create New Roadmap</h1>
       <form   v-on:submit.prevent="addNode">
         <select  v-model="newNodeType">
           <option  
@@ -241,7 +241,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: white;
+  color: black;
   margin: 0;
   overflow: hidden;
   height: 1000px;
@@ -249,6 +249,10 @@ export default {
 .tool-wrapper {
   position: relative;
  
+}
+
+#bk{
+  color: white;
 }
 /* .create {
   height: 100%;
